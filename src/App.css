@@ -1,6 +1,15 @@
 #root {
-  max-width: 1280px;
-  margin: 0 auto;
-  padding: 2rem;
-  text-align: center;
+  height: 100vh;
+  width: 100vw;
+  margin: auto;
+  padding: auto;
+  background-color: #F8F7F3;
+}
+
+#RootDiv {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: red;
 }

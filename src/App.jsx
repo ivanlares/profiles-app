@@ -10,9 +10,9 @@ function App() {
 
   return (
     <Router>
-      <div>
+      <div id="RootDiv">
         <Routes>
-          <Route path="/" element={loggedIn ? <Home/> : <Login />}/>
+          <Route path="/" element={loggedIn ? <Home /> : <Login />} />
         </Routes>
       </div>
     </Router>

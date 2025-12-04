@@ -3,7 +3,10 @@ import "./Login.css"
 const Login = () => {
 
     return (
-        <div>Login Page</div>
+        <div id="MainDiv">
+            <div id="HeaderDiv">Profiles</div>
+            <div id="LoginDiv">Username</div>
+        </div>
     )
 };
 
