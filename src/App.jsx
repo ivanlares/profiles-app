@@ -5,10 +5,17 @@ import Login from "./Containers/Login/Login";
 import './App.css';
 
 function App() {
+
+  let loggedIn = false;
+
   return (
-    <div>
-      <Login />
-    </div>
+    <Router>
+      <div>
+        <Routes>
+          <Route path="/" element={loggedIn ? <Home/> : <Login />}/>
+        </Routes>
+      </div>
+    </Router>
   );
 }
 
