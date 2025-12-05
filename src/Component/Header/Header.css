@@ -19,3 +19,7 @@
     color: #00244E;
     padding-right: 22px;
 }
+
+#logoutLink:hover {
+    text-decoration: underline;
+}

@@ -15,6 +15,10 @@ export const ProfilesContextProvider = ({ children }) => {
         return null;
     };
 
+    const logout = () => {
+        sessionStorage.setItem('currentUsername', null);
+    };
+
     const getCurrentUsername = () => {
         let username = sessionStorage.getItem('currentUsername');
         if (username == "null") {
@@ -28,7 +32,8 @@ export const ProfilesContextProvider = ({ children }) => {
         <ProfilesContext.Provider
             value={{
                 getCurrentUsername,
-                login
+                login,
+                logout
             }}
         >
             {children}
