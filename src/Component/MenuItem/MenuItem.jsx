@@ -4,13 +4,13 @@ import { useContext } from "react";
 import { ProfilesContext } from "../../Context/ProfilesContext.jsx";
 import { useNavigate } from "react-router-dom";
 
-const MenuItem = ({title, navigationPath}) => {
+const MenuItem = ({ title, navigationPath }) => {
 
     const { logout } = useContext(ProfilesContext);
     const navigate = useNavigate();
 
     const handleSelection = () => {
-        // navigate(navigationPath)
+        navigate(navigationPath)
     };
 
     return (

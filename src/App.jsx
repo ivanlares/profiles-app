@@ -2,6 +2,7 @@ import React from "react";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import Home from "./Containers/Home/Home";
 import Login from "./Containers/Login/Login";
+import EditProfile from "./Containers/EditProfile/EditProfile";
 import { ProfilesContextProvider } from "./Context/ProfilesContext";
 import './App.css';
 
@@ -14,6 +15,7 @@ function App() {
           <Routes>
             <Route path="/" element={<Login />} />
             <Route path="/home" element={<Home />}/>
+            <Route path="/home/edit-profile" element={<EditProfile />} />
           </Routes>
         </div>
       </Router>

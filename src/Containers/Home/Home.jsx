@@ -10,8 +10,8 @@ const Home = () => {
             <Header/>
             <div id="contentDiv">
                 <MenuItem title="Messages" navigationPath="/"/>
-                <FollowingMenuItem title="Following" navigationPath="/"/>
-                <MenuItem title="Edit Profile" navigationPath="/"/>
+                <FollowingMenuItem title="Following" navigationPath="/home/following"/>
+                <MenuItem title="Edit Profile" navigationPath="/home/edit-profile"/>
             </div>
         </div>
     )
