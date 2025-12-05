@@ -1,4 +1,4 @@
-import "./Login.css"
+import "./Login.css";
 
 const Login = () => {
 
@@ -8,18 +8,18 @@ const Login = () => {
                 <p id="HeaderText">Profiles</p>
                 <p id="SloganText">A simple & lightweight social media app.</p>
             </div>
-            <br/> <br/>
+            <br /> <br />
             <div id="LoginDiv">
-                <br/>
-                <input id="UsernameInput" type="text" placeholder="Username"/> 
-                <br/>
-                <input id="PasswordInput" type="password" placeholder="Password"/> 
-                <br/>
+                <br />
+                <input id="UsernameInput" type="text" placeholder="Username" />
+                <br />
+                <input id="PasswordInput" type="password" placeholder="Password" />
+                <br />
                 <button id="LoginButton" type="button">Log In</button>
-                <br/>
+                <br />
             </div>
         </div>
-    )
+    );
 };
 
 export default Login;
