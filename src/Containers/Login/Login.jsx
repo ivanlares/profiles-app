@@ -13,9 +13,11 @@ const Login = () => {
 
     useEffect(() => {
         // navigate home if user is currently logged in
-        if (getCurrentUsername() ?? false) {
+        if (getCurrentUsername() != null) {
             navigate("/home");
-        } 
+        } else {
+            console.log(`not navigating home`);
+        }
     })
 
     const handleLogin = () => {
@@ -23,9 +25,9 @@ const Login = () => {
 
         if (username ?? false) {
             navigate("/home");
+            errorLabelRef.current.style.visibility = 'hidden';
         } else {
-            console.log(`invalid credentials`);
-            // TODO: Show error message 
+            errorLabelRef.current.style.visibility = 'visible';
         }
     };
 

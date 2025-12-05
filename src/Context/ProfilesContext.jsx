@@ -6,17 +6,22 @@ export const ProfilesContext = createContext();
 export const ProfilesContextProvider = ({ children }) => {
     const login = (username, password) => {        
         let userCredentials = initialUserCredentials[username];
-        if (password == userCredentials.password) {
+        if (password == userCredentials?.password) {
             sessionStorage.setItem('currentUsername', username)
             return username
         }
-        
+
         sessionStorage.setItem('currentUsername', null)
         return null;
     };
 
     const getCurrentUsername = () => {
-        return sessionStorage.getItem('currentUsername')
+        let username = sessionStorage.getItem('currentUsername');
+        if (username == "null") {
+            return null
+        } else {
+            return username
+        }
     };
 
     return (
