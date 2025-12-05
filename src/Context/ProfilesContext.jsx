@@ -4,23 +4,25 @@ import { initialUserCredentials } from "../Data/InitialData"
 export const ProfilesContext = createContext();
 
 export const ProfilesContextProvider = ({ children }) => {
-    const [currentUser, setCurrentUser] = useState(null)
-
     const login = (username, password) => {        
         let userCredentials = initialUserCredentials[username];
         if (password == userCredentials.password) {
-            setCurrentUser(username)
+            sessionStorage.setItem('currentUsername', username)
             return username
         }
         
-        setCurrentUser(null)
+        sessionStorage.setItem('currentUsername', null)
         return null;
+    };
+
+    const getCurrentUsername = () => {
+        return sessionStorage.getItem('currentUsername')
     };
 
     return (
         <ProfilesContext.Provider
             value={{
-                currentUser,
+                getCurrentUsername,
                 login
             }}
         >

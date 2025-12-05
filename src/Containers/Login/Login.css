@@ -87,3 +87,9 @@
 #LoginButton:hover {
     background-color: #00244ee2;
 }
+
+#ErrorLabel {
+    color: red;
+    font-size: 18px;
+    visibility: hidden;
+}

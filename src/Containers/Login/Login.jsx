@@ -5,10 +5,18 @@ import { useNavigate } from "react-router-dom";
 
 const Login = () => {
 
-    const { currentUser, login } = useContext(ProfilesContext);
+    const { getCurrentUsername, login } = useContext(ProfilesContext);
     const navigate = useNavigate();
     const usernameInputRef = useRef(null);
     const passwordInputRef = useRef(null);
+    const errorLabelRef = useRef(null);
+
+    useEffect(() => {
+        // navigate home if user is currently logged in
+        if (getCurrentUsername() ?? false) {
+            navigate("/home");
+        } 
+    })
 
     const handleLogin = () => {
         let username = login(usernameInputRef.current.value, passwordInputRef.current.value);
@@ -37,6 +45,7 @@ const Login = () => {
                 <button id="LoginButton" type="button" onClick={handleLogin}>Log In</button>
                 <br />
             </div>
+            <p id="ErrorLabel" ref={errorLabelRef}>Invalid credentials, please try again.</p>
         </div>
     );
 };
