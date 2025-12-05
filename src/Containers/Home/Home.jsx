@@ -1,6 +1,7 @@
 import "./Home.css"
 import Header from "../../Component/Header/Header.jsx"
-import MenueItem from "../../Component/MenuItem/MenuItem.jsx";
+import MenuItem from "../../Component/MenuItem/MenuItem.jsx";
+import FollowingMenuItem from "../../Component/FollowingMenuItem/FollowingMenuItem.jsx";
 
 const Home = () => {
 
@@ -8,8 +9,9 @@ const Home = () => {
         <div id="mainDiv">
             <Header/>
             <div id="contentDiv">
-                <MenueItem title="Messages" navigationPath="/"/>
-                <MenueItem title="Edit Profile" navigationPath="/"/>
+                <MenuItem title="Messages" navigationPath="/"/>
+                <FollowingMenuItem title="Following" navigationPath="/"/>
+                <MenuItem title="Edit Profile" navigationPath="/"/>
             </div>
         </div>
     )
