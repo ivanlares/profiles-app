@@ -1,0 +1,21 @@
+#headerDiv {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    width: 100vw;
+    background-color: white;
+}
+
+#logo {
+    font-size: 1.5rem;
+    font-weight: bolder;
+    color: #00244E;
+    padding-left: 22px;
+}
+
+#logoutLink {
+    font-size: 1rem;
+    color: #00244E;
+    padding-right: 22px;
+}

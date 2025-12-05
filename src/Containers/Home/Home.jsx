@@ -1,9 +1,12 @@
 import "./Home.css"
+import Header from "../../Component/Header/Header.jsx"
 
 const Home = () => {
 
     return (
-        <div>Hello World!</div>
+        <div id="mainDiv">
+            <Header/>
+        </div>
     )
 };
 
