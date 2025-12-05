@@ -6,12 +6,13 @@ export const ProfilesContext = createContext();
 export const ProfilesContextProvider = ({ children }) => {
     const [currentUser, setCurrentUser] = useState(null)
 
-    const login = (username, password) => {
-        userCredentials = initialUserCredentials[username]
-        if (password = userCredentials[username]?.password ?? false) {
+    const login = (username, password) => {        
+        let userCredentials = initialUserCredentials[username];
+        if (password == userCredentials.password) {
             setCurrentUser(username)
             return username
         }
+        
         setCurrentUser(null)
         return null;
     };

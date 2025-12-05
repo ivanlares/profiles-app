@@ -7,14 +7,13 @@ import './App.css';
 
 function App() {
 
-  let loggedIn = false;
-
   return (
     <ProfilesContextProvider>
       <Router>
         <div id="RootDiv">
           <Routes>
-            <Route path="/" element={loggedIn ? <Home /> : <Login />} />
+            <Route path="/" element={<Login />} />
+            <Route path="/home" element={<Home />}/>
           </Routes>
         </div>
       </Router>
