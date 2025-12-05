@@ -7,3 +7,12 @@
     width: 100vw;
     background-color: #F8F7F3;
 }
+
+#contentDiv {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    width: calc(100% - 44px);
+    max-width: 1100px;
+    background-color: white;
+}
