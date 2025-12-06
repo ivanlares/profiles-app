@@ -102,7 +102,9 @@ export const ProfilesContextProvider = ({ children }) => {
             let keys = Object.keys(following);
             let profileData = [];
             keys.forEach((username) => {
-                profileData.push(getProfileData(username));
+                let newItem = getProfileData(username);
+                newItem["username"] = username;
+                profileData.push(newItem);
             });
             return profileData
         } catch (error) {

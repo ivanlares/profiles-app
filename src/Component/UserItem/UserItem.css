@@ -1,0 +1,29 @@
+#userItemRootDiv {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    background-color: white;
+    border-bottom: 1px solid #F5F5F5;
+    font-size: 18px;
+    padding: 12px 12px 12px 12px ;
+}
+
+#userItemInnerDiv {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+.profile-icon-small {
+    height: 55px;
+    width: 55px;
+    margin-bottom: 8px;
+    border-radius: 50%;
+    -webkit-border-radius: 50%;
+    -moz-border-radius: 50%;
+    -ms-border-radius: 50%;
+    -o-border-radius: 50%;
+}
