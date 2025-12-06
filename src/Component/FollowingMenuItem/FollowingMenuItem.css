@@ -25,6 +25,7 @@
     width: 100px;
     padding-left: 22px;
     padding-bottom: 22px;
+    display: none;
 }
 
 #followingMenuItemTitle {

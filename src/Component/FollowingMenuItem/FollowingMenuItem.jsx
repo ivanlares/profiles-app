@@ -4,7 +4,7 @@ import { useContext } from "react";
 import { ProfilesContext } from "../../Context/ProfilesContext.jsx";
 import { useNavigate } from "react-router-dom";
 
-const FollowingMenuItem = ({ title, navigationPath }) => {
+const FollowingMenuItem = ({ title, navigationPath, showFollowers }) => {
 
     const { logout } = useContext(ProfilesContext);
     const navigate = useNavigate();
@@ -18,7 +18,7 @@ const FollowingMenuItem = ({ title, navigationPath }) => {
             <div id="followersRootDiv">
                 <p id="followingMenuItemTitle">{title}</p>
 
-                <div id="followersDiv">😀 😀 😀</div>
+                <div id="followersDiv" style={{ display: showFollowers ? "block" : "none" }}>😀 😀 😀</div>
             </div>
 
             <p id="rightChevron">&#8250;</p>

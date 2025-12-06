@@ -7,11 +7,11 @@ const Home = () => {
 
     return (
         <div id="mainDiv">
-            <Header/>
+            <Header />
             <div className="contentDiv">
-                <MenuItem title="Messages" navigationPath="/"/>
-                <FollowingMenuItem title="Following" navigationPath="/home/following"/>
-                <MenuItem title="Edit Profile" navigationPath="/home/edit-profile"/>
+                <MenuItem title="Messages" navigationPath="/" />
+                <FollowingMenuItem title="Following" navigationPath="/home/following" showFollowers={false} />
+                <MenuItem title="Edit Profile" navigationPath="/home/edit-profile" />
             </div>
         </div>
     )
