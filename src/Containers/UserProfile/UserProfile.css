@@ -36,8 +36,22 @@
      -o-border-radius: 4px;
  }
 
+ #followButtonDisabled {
+     font-size: 18px;
+     background-color: #00244e8c;
+     color: white;
+     padding: 8px 8px 8px 8px;
+     border: none;
+     width: 200px;
+     border-radius: 4px;
+     -webkit-border-radius: 4px;
+     -moz-border-radius: 4px;
+     -ms-border-radius: 4px;
+     -o-border-radius: 4px;
+ }
+
  #followButton:hover {
-     background-color: #00244eda;
+     background-color: #00244e8c;
  }
 
  #messageButton {
@@ -55,7 +69,7 @@
  }
 
  #messageButton:hover {
-     background: #ff7700c9;
+     background: #ff770085;
  }
 
  #profileAboutMe {
@@ -79,7 +93,7 @@
  }
 
  .linkImage {
-    padding-right: 8px;
+     padding-right: 8px;
  }
 
  #linkedInImage {
@@ -99,5 +113,5 @@
  }
 
  #spotifyEmbedDiv {
-    margin: 12px 12px 22px 12px;
+     margin: 12px 12px 22px 12px;
  }

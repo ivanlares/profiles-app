@@ -5,11 +5,11 @@ import { ProfilesContext } from "../../Context/ProfilesContext.jsx";
 import linkedInURL from "../../Assets/UserImages/linkedin.png";
 import instagramURL from "../../Assets/UserImages/instagram.svg"
 import userAvatar from "../../Assets/UserImages/user-avatar.svg";
-import { BrowserRouter as Router, Routes, Route, Link, useParams} from "react-router-dom";
+import { BrowserRouter as Router, Routes, Route, Link, useParams } from "react-router-dom";
 
 const UserProfile = () => {
 
-    const {  getProfileData } = useContext(ProfilesContext);
+    const { isFollowing, getProfileData, getCurrentUsername } = useContext(ProfilesContext);
     const [profileData, setProfileData] = useState(null);
     const spotifyDivRef = useRef(null);
     const linkedInDivRef = useRef(null);
@@ -40,7 +40,7 @@ const UserProfile = () => {
                     <p id="profileUsername">{username}</p>
                 </div>
 
-                <button id="followButton">Follow</button>
+                <button id={(isFollowing(username) || getCurrentUsername() == username) ? "followButtonDisabled": "followButton" } >{isFollowing(username) ? "Following" : "Follow"}</button>
 
                 <br />
 
@@ -59,7 +59,6 @@ const UserProfile = () => {
                         <img id="linkedInImage" className="linkImage" src={linkedInURL}></img>
                         <Link id="linkedInURL" target="_blank" to={profileData?.linkedInURL ?? ''} >{profileData?.linkedInURL ?? ''}</Link>
                     </div>
-
 
                     <div id="instagramContainer" className="profileLinkContainer" ref={instagramDivRef}>
                         <img id="instagramImage" className="linkImage" src={instagramURL}></img>
