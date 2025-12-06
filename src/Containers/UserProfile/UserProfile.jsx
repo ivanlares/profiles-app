@@ -5,19 +5,20 @@ import { ProfilesContext } from "../../Context/ProfilesContext.jsx";
 import linkedInURL from "../../Assets/UserImages/linkedin.png";
 import instagramURL from "../../Assets/UserImages/instagram.svg"
 import userAvatar from "../../Assets/UserImages/user-avatar.svg";
-import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
+import { BrowserRouter as Router, Routes, Route, Link, useParams} from "react-router-dom";
 
 const UserProfile = () => {
 
-    const { getCurrentUsername, getProfileData } = useContext(ProfilesContext);
+    const {  getProfileData } = useContext(ProfilesContext);
     const [profileData, setProfileData] = useState(null);
     const spotifyDivRef = useRef(null);
     const linkedInDivRef = useRef(null);
     const instagramDivRef = useRef(null);
     const bodyRef = useRef(null);
+    const { username } = useParams();
 
     useEffect(() => {
-        let profileData = getProfileData(getCurrentUsername());
+        let profileData = getProfileData(username);
         setProfileData(profileData)
 
         if (profileData.spotifyEmbed != null) {
@@ -36,7 +37,7 @@ const UserProfile = () => {
 
                 <div id="profileIconDiv" >
                     <img id="userProfileImage" className="profile-icon-medium" src={profileData?.photoURL ?? userAvatar}></img>
-                    <p id="profileUsername">{getCurrentUsername()}</p>
+                    <p id="profileUsername">{username}</p>
                 </div>
 
                 <button id="followButton">Follow</button>
