@@ -82,7 +82,7 @@ export const ProfilesContextProvider = ({ children }) => {
             let followingDataString = sessionStorage.getItem('followingData');
 
             if (followingDataString == null) {
-                return initialFollowingData[currentUsername][username] ?? false;
+                return initialFollowingData[currentUsername]?.username ?? false;
             }
 
             let followingData = JSON.parse(followingDataString);
@@ -119,7 +119,7 @@ export const ProfilesContextProvider = ({ children }) => {
             if (followingData[currentUser] != null) {
                 followingData[currentUser][username] = true;
             } else {
-                followingData[currentUser] = {username:true};
+                followingData[currentUser] = {[username]:true};
             }
 
             sessionStorage.setItem("followingData", JSON.stringify(followingData))
