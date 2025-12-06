@@ -6,7 +6,7 @@ import { useNavigate } from "react-router-dom";
 
 const Header = () => {
 
-    const { logout } = useContext(ProfilesContext);
+    const { logout, getCurrentUsername } = useContext(ProfilesContext);
     const navigate = useNavigate();
 
     const handleLogout = () => {
@@ -14,9 +14,17 @@ const Header = () => {
         navigate("/")
     };
 
+    const handleLogoClick = () => {
+        if (getCurrentUsername() != null) {
+            navigate("/home")
+        } else {
+            navigate("/")
+        }
+    };
+
     return (
         <div id="headerDiv">
-            <p id="logo">Pages</p>
+            <p id="logo" onClick={handleLogoClick}>Pages</p>
             <p id='logoutLink' onClick={handleLogout}>Logout</p>
         </div>
     );
