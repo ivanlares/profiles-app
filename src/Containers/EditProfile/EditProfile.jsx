@@ -29,7 +29,7 @@ const EditProfile = () => {
             <Header />
             <div className="contentDiv">
                 <div className="editProfileItem">
-                    <img className="profile-icon-medium" src={userAvatar}></img>
+                    <img className="profile-icon-medium" src={(photoURL != '') ? photoURL : userAvatar}></img>
                     <input className="edit-profile-input" type="url" placeholder="Photo URL" defaultValue={photoURL}></input>
                 </div>
 
@@ -48,6 +48,11 @@ const EditProfile = () => {
                 <div className="editProfileItem">
                     <textarea className="edit-profile-embed" type="url" placeholder="Spotify Embed" defaultValue={spotifyEmbed}></textarea>
                 </div>
+
+                <div className="editProfileItem">
+                    <button id="updateButton">Update</button>
+                </div>
+                
             </div>
         </div>
     )

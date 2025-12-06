@@ -58,7 +58,7 @@
     -ms-border-radius: 4px;
     -o-border-radius: 4px;
     min-width: 500px;
-    height: 120px;
+    height: 75px;
     padding: 12px 12px 12px 12px;
     font-size: 1rem;
 }
@@ -87,6 +87,22 @@
 
 .edit-profile-embed:focus {
     outline-color: #00244E;
+    border-radius: 4px;
+    -webkit-border-radius: 4px;
+    -moz-border-radius: 4px;
+    -ms-border-radius: 4px;
+    -o-border-radius: 4px;
+}
+
+#updateButton {
+    background-color: #FF7900;
+    color: white;
+    font-size: 18px;
+    font-weight: normal;
+    padding: 12px 0px 12px 0px;
+    margin-bottom: 22px;
+    width: 500px;
+    border: none;
     border-radius: 4px;
     -webkit-border-radius: 4px;
     -moz-border-radius: 4px;
