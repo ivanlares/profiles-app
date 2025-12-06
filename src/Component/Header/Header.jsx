@@ -24,7 +24,7 @@ const Header = () => {
 
     return (
         <div id="headerDiv">
-            <p id="logo" onClick={handleLogoClick}>Pages</p>
+            <p id="logo" onClick={handleLogoClick}>Profiles</p>
             <p id='logoutLink' onClick={handleLogout}>Logout</p>
         </div>
     );
