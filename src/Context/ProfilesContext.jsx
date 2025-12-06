@@ -43,13 +43,47 @@ export const ProfilesContextProvider = ({ children }) => {
         }
     };
 
+    const updateProfileData = (data) => {
+        let currentUsername = getCurrentUsername();
+
+        console.log(`-- in UpdateProfileData ${currentUsername}`);
+
+        if (data == null || currentUsername == null) {
+            return null
+        }
+
+        let profilesSessionDataString = sessionStorage.getItem('profileData');
+
+        console.log(`-- profilesSessionDataString ${profilesSessionDataString}`);
+        
+        if (profilesSessionDataString == null) {
+            // no session data
+            let updatedData = initialUserProfiles;
+            updatedData[currentUsername] = data;
+            sessionStorage.setItem('profileData', JSON.stringify(updatedData));
+
+            console.log(`profilesSessionDataString == null. updatedData ${JSON.stringify(updatedData)}`);
+        } else {
+            // update existing session data
+            try {
+                let dataToUpdate = JSON.parse(profilesSessionDataString);
+                dataToUpdate[currentUsername] = data
+                console.log(`attempting to save sessionstorage item ${dataToUpdate}`);
+                sessionStorage.setItem('profileData', JSON.stringify(dataToUpdate));
+            } catch (error) {
+                console.log(error);
+            }
+        }
+    };
+
     return (
         <ProfilesContext.Provider
             value={{
                 getCurrentUsername,
                 login,
                 logout,
-                getProfileData
+                getProfileData,
+                updateProfileData
             }}
         >
             {children}
