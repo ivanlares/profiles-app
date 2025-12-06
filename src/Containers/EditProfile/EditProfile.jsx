@@ -10,7 +10,7 @@ const EditProfile = () => {
             <div className="contentDiv">
                 <div className="editProfileItem">
                     <img className="profile-icon-medium" src={userAvatar}></img>
-                    <input className="edit-profile-input" type="url" placeholder="Profile URL"></input>
+                    <input className="edit-profile-input" type="url" placeholder="Photo URL"></input>
                 </div>
 
                 <div className="editProfileItem">
