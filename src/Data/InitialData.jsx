@@ -46,7 +46,6 @@ export const initialUserProfiles = {
 
 export const initialFollowingData = {
     "ivan": {
-        "john_doe": true,
         "obama": true,
         "tom": true
     }

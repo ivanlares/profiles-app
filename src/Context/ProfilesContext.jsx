@@ -1,5 +1,5 @@
 import React, {createContext, useState, useEffect}  from "react";
-import { initialUserCredentials, initialUserProfiles} from "../Data/InitialData"
+import { initialUserCredentials, initialUserProfiles, initialFollowingData} from "../Data/InitialData"
 
 export const ProfilesContext = createContext();
 
@@ -76,6 +76,24 @@ export const ProfilesContextProvider = ({ children }) => {
         }
     };
 
+    const isFollowing = (username) => {
+        try {
+            let currentUsername = getCurrentUsername();
+            let followingDataString = sessionStorage.getItem('followingData');
+
+            if (followingDataString == null) {
+                return initialFollowingData[currentUsername][username] ?? false
+            }
+
+            let followingData = JSON.parse(followingDataString);
+            let isFollowing = followingData[currentUsername][username];
+            return isFollowing ?? false
+        } catch (error) {
+            console.log(`got error in isFollowing: ${error}`)
+            return false
+        }
+    }
+
     return (
         <ProfilesContext.Provider
             value={{
@@ -83,7 +101,8 @@ export const ProfilesContextProvider = ({ children }) => {
                 login,
                 logout,
                 getProfileData,
-                updateProfileData
+                updateProfileData,
+                isFollowing
             }}
         >
             {children}
