@@ -4,6 +4,7 @@ import Home from "./Containers/Home/Home";
 import Login from "./Containers/Login/Login";
 import EditProfile from "./Containers/EditProfile/EditProfile";
 import { ProfilesContextProvider } from "./Context/ProfilesContext";
+import UserProfile from "./Containers/UserProfile/UserProfile";
 import './App.css';
 
 function App() {
@@ -16,7 +17,7 @@ function App() {
             <Route path="/" element={<Login />} />
             <Route path="/home" element={<Home />}/>
             <Route path="/home/edit-profile" element={<EditProfile />} />
-            <Route path="/profile/:username" element={<EditProfile />} />
+            <Route path="/profile/:username" element={<UserProfile />} />
           </Routes>
         </div>
       </Router>
