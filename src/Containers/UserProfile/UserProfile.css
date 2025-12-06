@@ -60,6 +60,7 @@
 
  #profileAboutMe {
      font-size: 18px;
+     max-width: 500px;
  }
 
  #profileLinksDiv {
