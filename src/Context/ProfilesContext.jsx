@@ -1,5 +1,5 @@
 import React, {createContext, useState, useEffect}  from "react";
-import { initialUserCredentials } from "../Data/InitialData"
+import { initialUserCredentials, initialUserProfiles} from "../Data/InitialData"
 
 export const ProfilesContext = createContext();
 
@@ -28,12 +28,28 @@ export const ProfilesContextProvider = ({ children }) => {
         }
     };
 
+    const getProfileData = (username) => {
+        let profilesDataString = sessionStorage.getItem('profileData');
+
+        if (profilesDataString == null) {
+            return initialUserProfiles[username] ?? null;
+        }
+
+        try {
+            let profilesData = JSON.parse(profilesDataString);
+            return profilesData[username] ?? initialUserProfiles[username] ?? null;
+        } catch {
+            return null;
+        }
+    };
+
     return (
         <ProfilesContext.Provider
             value={{
                 getCurrentUsername,
                 login,
-                logout
+                logout,
+                getProfileData
             }}
         >
             {children}
