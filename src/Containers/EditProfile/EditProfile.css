@@ -1,18 +1,95 @@
-/* #mainDiv {
+#editProfileRootDiv {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+.editProfileItem {
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
     align-items: center;
-    height: 100vh;
-    width: 100vw;
-    background-color: #F8F7F3;
+    padding: 22px 22px 22px 22px;
+    border-bottom: 1px solid #F5F5F5;
 }
 
-#contentDiv {
-    display: flex;
-    flex-direction: column;
-    height: 100%;
-    width: 100%;
-    max-width: 1100px;
-    background-color: white;
-} */
+.edit-profile-input {
+    border: 1.5px solid lightgray;
+    border-radius: 4px;
+    -webkit-border-radius: 4px;
+    -moz-border-radius: 4px;
+    -ms-border-radius: 4px;
+    -o-border-radius: 4px;
+}
+
+ .edit-profile-input:focus {
+    outline-color: #00244E;
+    border-radius: 4px;
+    -webkit-border-radius: 4px;
+    -moz-border-radius: 4px;
+    -ms-border-radius: 4px;
+    -o-border-radius: 4px;
+}
+
+.editProfileItem > .edit-profile-input {
+    min-width: 500px;
+    padding: 12px 12px 12px 12px;
+    font-size: 1rem;
+}
+
+.profile-icon-medium {
+    height: 80px;
+    width: 80px;
+    margin-bottom: 8px;
+    border-radius: 50%;
+    -webkit-border-radius: 50%;
+    -moz-border-radius: 50%;
+    -ms-border-radius: 50%;
+    -o-border-radius: 50%;
+}
+
+#edit-profile-about-input {
+    border: 1.5px solid lightgray;
+    border-radius: 4px;
+    -webkit-border-radius: 4px;
+    -moz-border-radius: 4px;
+    -ms-border-radius: 4px;
+    -o-border-radius: 4px;
+    min-width: 500px;
+    height: 120px;
+    padding: 12px 12px 12px 12px;
+    font-size: 1rem;
+}
+
+ #edit-profile-about-input:focus {
+    outline-color: #00244E;
+    border-radius: 4px;
+    -webkit-border-radius: 4px;
+    -moz-border-radius: 4px;
+    -ms-border-radius: 4px;
+    -o-border-radius: 4px;
+}
+
+.edit-profile-embed {
+    border: 1.5px solid lightgray;
+    border-radius: 4px;
+    min-width: 500px;
+    -webkit-border-radius: 4px;
+    -moz-border-radius: 4px;
+    -ms-border-radius: 4px;
+    -o-border-radius: 4px;
+    height: 120px;
+    padding: 12px 12px 12px 12px;
+    font-size: 1rem;
+}
+
+.edit-profile-embed:focus {
+    outline-color: #00244E;
+    border-radius: 4px;
+    -webkit-border-radius: 4px;
+    -moz-border-radius: 4px;
+    -ms-border-radius: 4px;
+    -o-border-radius: 4px;
+}

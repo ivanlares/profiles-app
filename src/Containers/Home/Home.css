@@ -8,7 +8,7 @@
     background-color: #F8F7F3;
 }
 
-#contentDiv {
+.contentDiv {
     display: flex;
     flex-direction: column;
     height: 100%;

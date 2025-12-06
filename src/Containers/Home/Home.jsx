@@ -8,7 +8,7 @@ const Home = () => {
     return (
         <div id="mainDiv">
             <Header/>
-            <div id="contentDiv">
+            <div className="contentDiv">
                 <MenuItem title="Messages" navigationPath="/"/>
                 <FollowingMenuItem title="Following" navigationPath="/home/following"/>
                 <MenuItem title="Edit Profile" navigationPath="/home/edit-profile"/>
