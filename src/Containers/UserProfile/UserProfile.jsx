@@ -9,13 +9,14 @@ import { BrowserRouter as Router, Routes, Route, Link, useParams } from "react-r
 
 const UserProfile = () => {
 
-    const { isFollowing, getProfileData, getCurrentUsername } = useContext(ProfilesContext);
+    const { isFollowing, getProfileData, getCurrentUsername, follow } = useContext(ProfilesContext);
     const [profileData, setProfileData] = useState(null);
     const spotifyDivRef = useRef(null);
     const linkedInDivRef = useRef(null);
     const instagramDivRef = useRef(null);
     const bodyRef = useRef(null);
     const { username } = useParams();
+    const [following, setIsFollowing] = useState(false)
 
     useEffect(() => {
         let profileData = getProfileData(username);
@@ -28,7 +29,14 @@ const UserProfile = () => {
         instagramDivRef.current.style.display = profileData.instagramURL == null ? "none" : "block"
         linkedInDivRef.current.style.display = profileData.linkedInURL == null ? "none" : "block";
         bodyRef.current.style.display = (profileData.aboutMe == null) ? "none" : "block";
+
+        setIsFollowing(isFollowing(username))
     }, []);
+
+    const handleFollowClick = () => {
+        follow(username);
+        setIsFollowing(true);
+    };
 
     return (
         <div id="mainDiv">
@@ -40,7 +48,7 @@ const UserProfile = () => {
                     <p id="profileUsername">{username}</p>
                 </div>
 
-                <button id={(isFollowing(username) || getCurrentUsername() == username) ? "followButtonDisabled": "followButton" } >{isFollowing(username) ? "Following" : "Follow"}</button>
+                <button id={(following || getCurrentUsername() == username) ? "followButtonDisabled": "followButton" } onClick={handleFollowClick}>{following ? "Following" : "Follow"}</button>
 
                 <br />
 

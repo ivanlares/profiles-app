@@ -112,6 +112,22 @@ export const ProfilesContextProvider = ({ children }) => {
         }
     }
 
+    const follow = (username) => {
+        try {
+            let currentUser = getCurrentUsername();
+            let followingData = getAllFollowingData();
+            if (followingData[currentUser] != null) {
+                followingData[currentUser][username] = true;
+            } else {
+                followingData[currentUser] = {username:true};
+            }
+
+            sessionStorage.setItem("followingData", JSON.stringify(followingData))
+        } catch (error) {
+            console.log(error);
+        }
+    }
+
     function getAllFollowingData() {
         let followingDataString = sessionStorage.getItem('followingData');
 
@@ -131,7 +147,8 @@ export const ProfilesContextProvider = ({ children }) => {
                 getProfileData,
                 updateProfileData,
                 isFollowing,
-                followingProfileData
+                followingProfileData,
+                follow
             }}
         >
             {children}
