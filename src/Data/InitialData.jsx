@@ -43,3 +43,11 @@ export const initialUserProfiles = {
         "aboutMe": "Thomas Anderson is an American technology entrepreneur and co-founder of the social networking website Myspace, which he founded in 2003 with Chris DeWolfe. He was later president of Myspace and a strategic adviser for the company"
     }
 }
+
+export const initialFollowingData = {
+    "ivan": {
+        "john_doe": true,
+        "obama": true,
+        "tom": true
+    }
+}
