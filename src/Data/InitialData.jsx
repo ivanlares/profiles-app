@@ -48,5 +48,8 @@ export const initialFollowingData = {
     "ivan": {
         "obama": true,
         "tom": true
+    },
+    "tom": {
+        "john_doe": true
     }
 }

@@ -1,10 +1,10 @@
-import React, {createContext, useState, useEffect}  from "react";
-import { initialUserCredentials, initialUserProfiles, initialFollowingData} from "../Data/InitialData"
+import React, { createContext, useState, useEffect } from "react";
+import { initialUserCredentials, initialUserProfiles, initialFollowingData } from "../Data/InitialData"
 
 export const ProfilesContext = createContext();
 
 export const ProfilesContextProvider = ({ children }) => {
-    const login = (username, password) => {        
+    const login = (username, password) => {
         let userCredentials = initialUserCredentials[username];
         if (password == userCredentials?.password) {
             sessionStorage.setItem('currentUsername', username)
@@ -55,7 +55,7 @@ export const ProfilesContextProvider = ({ children }) => {
         let profilesSessionDataString = sessionStorage.getItem('profileData');
 
         console.log(`-- profilesSessionDataString ${profilesSessionDataString}`);
-        
+
         if (profilesSessionDataString == null) {
             // no session data
             let updatedData = initialUserProfiles;
@@ -82,15 +82,41 @@ export const ProfilesContextProvider = ({ children }) => {
             let followingDataString = sessionStorage.getItem('followingData');
 
             if (followingDataString == null) {
-                return initialFollowingData[currentUsername][username] ?? false
+                return initialFollowingData[currentUsername][username] ?? false;
             }
 
             let followingData = JSON.parse(followingDataString);
             let isFollowing = followingData[currentUsername][username];
-            return isFollowing ?? false
+            return isFollowing ?? false;
         } catch (error) {
-            console.log(`got error in isFollowing: ${error}`)
-            return false
+            console.log(`got error in isFollowing: ${error}`);
+            return false;
+        }
+    }
+
+    const followingProfileData = () => {
+        try {
+            let currentUsername = getCurrentUsername();
+            let followingData = getAllFollowingData();
+            let following = followingData[currentUsername];
+            let keys = Object.keys(following);
+            let profileData = [];
+            keys.forEach((username) => {
+                profileData.push(getProfileData(username));
+            });
+            return profileData
+        } catch (error) {
+            return [];
+        }
+    }
+
+    function getAllFollowingData() {
+        let followingDataString = sessionStorage.getItem('followingData');
+
+        if (followingDataString == null) {
+            return initialFollowingData
+        } else {
+            return JSON.parse(followingDataString);
         }
     }
 
@@ -102,7 +128,8 @@ export const ProfilesContextProvider = ({ children }) => {
                 logout,
                 getProfileData,
                 updateProfileData,
-                isFollowing
+                isFollowing,
+                followingProfileData
             }}
         >
             {children}
