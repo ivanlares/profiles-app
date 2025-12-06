@@ -1,17 +1,32 @@
 import "./UserProfile.css";
 import Header from "../../Component/Header/Header.jsx";
-import { useContext, useEffect, useRef } from "react";
+import { useContext, useEffect, useRef, useState } from "react";
 import { ProfilesContext } from "../../Context/ProfilesContext.jsx";
 import linkedInURL from "../../Assets/UserImages/linkedin.png";
 import instagramURL from "../../Assets/UserImages/instagram.svg"
 import userAvatar from "../../Assets/UserImages/user-avatar.svg";
+import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
 
 const UserProfile = () => {
 
-    const { getCurrentUsername } = useContext(ProfilesContext);
+    const { getCurrentUsername, getProfileData } = useContext(ProfilesContext);
+    const [profileData, setProfileData] = useState(null);
+    const spotifyDivRef = useRef(null);
+    const linkedInDivRef = useRef(null);
+    const instagramDivRef = useRef(null);
+    const bodyRef = useRef(null);
 
     useEffect(() => {
-        console.log("User Profile visited");
+        let profileData = getProfileData(getCurrentUsername());
+        setProfileData(profileData)
+
+        if (profileData.spotifyEmbed != null) {
+            spotifyDivRef.current.innerHTML = profileData.spotifyEmbed;
+        }
+
+        instagramDivRef.current.style.display = profileData.instagramURL == null ? "none" : "block"
+        linkedInDivRef.current.style.display = profileData.linkedInURL == null ? "none" : "block";
+        bodyRef.current.style.display = (profileData.aboutMe == null) ? "none" : "block";
     }, []);
 
     return (
@@ -19,8 +34,8 @@ const UserProfile = () => {
             <Header />
             <div id="profileContentDiv">
 
-                <div id="profileIconDiv">
-                    <img id="userProfileImage" className="profile-icon-medium" src={userAvatar}></img>
+                <div id="profileIconDiv" >
+                    <img id="userProfileImage" className="profile-icon-medium" src={profileData?.photoURL ?? userAvatar}></img>
                     <p id="profileUsername">{getCurrentUsername()}</p>
                 </div>
 
@@ -32,20 +47,25 @@ const UserProfile = () => {
 
                 <br />
 
-                <p id="profileAboutMe"></p>
+                <p id="profileAboutMe" ref={bodyRef}>{profileData?.aboutMe ?? ''}</p>
 
-                <div id="linkedInContainer" className="profileLinkContainer">
-                    <img id="linkedInImage" src={linkedInURL} ></img>
-                    <p id="linkedInURL"></p>
+
+                <div id="spotifyEmbedDiv" ref={spotifyDivRef} ></div>
+
+                <div id="profileLinksDiv">
+
+                    <div id="linkedInContainer" className="profileLinkContainer" ref={linkedInDivRef}>
+                        <img id="linkedInImage" className="linkImage" src={linkedInURL}></img>
+                        <Link id="linkedInURL" target="_blank" to={profileData?.linkedInURL ?? ''} >{profileData?.linkedInURL ?? ''}</Link>
+                    </div>
+
+
+                    <div id="instagramContainer" className="profileLinkContainer" ref={instagramDivRef}>
+                        <img id="instagramImage" className="linkImage" src={instagramURL}></img>
+                        <Link id="instagramURL" target="_blank" to={profileData?.instagramURL ?? ''}>{profileData?.instagramURL ?? ''}</Link>
+                    </div>
                 </div>
 
-
-                <div id="instagramContainer" className="profileLinkContainer">
-                    <img id="instagramImage" src={instagramURL}></img>
-                    <p id="instagramURL"></p>
-                </div>
-
-                <div id="spotifyEmbedDiv"></div>
             </div>
         </div>
     )
