@@ -12,6 +12,7 @@ const Home = () => {
                 <MenuItem title="Messages" navigationPath="/" />
                 <FollowingMenuItem title="Following" navigationPath="/home/following" showFollowers={false} />
                 <MenuItem title="Edit Profile" navigationPath="/home/edit-profile" />
+                <MenuItem title="View Profile" navigationPath="/profile/:username" />
             </div>
         </div>
     )
